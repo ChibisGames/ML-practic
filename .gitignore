@@ -1,1 +1,10 @@
 /.ipynb_checkpoints
+
+/src/utils/dvc-download-from-gdrive.py
+/src/utils/dvc-add.py
+/src/utils/dvc-push-to-gdrive.py
+
+download-dataset.log
+dvc_add.log
+dataset-to-dvc.log
+download-dvc.log
