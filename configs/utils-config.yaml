@@ -1,0 +1,31 @@
+# От этой строчки НЕЛЬЗЯ менять параметры
+defaults:
+  - _self_
+  - override hydra/hydra_logging: disabled
+  - override hydra/job_logging: disabled
+
+hydra:
+  verbose: false
+  job:
+    chdir: false
+  run:
+    dir: "."
+  sweep:
+    dir: "."
+  output_subdir: null
+
+# От этой строчки МОЖНО менять параметры
+
+# Параметры для скачивания датасета из интернета
+PATH_TO_DOWNLOAD_FROM_INTERNET:
+  url: https://raw.githubusercontent.com/uiuc-cse/data-fa14/gh-pages/data/iris.csv # URL на скачивание датасета
+  filename: iris.csv # Имя сохраняемого файла (датасета) 
+  output_dir: ./data/raw # Не трогать, т.к. отправляет файл в папку data/raw
+
+# Параметры для чтения/сохранения датасета с помощью DVC в Google Drive (Не поддерживается Google с 01.01.2025)
+PATH_DVC_TO_GDRIVE:
+  name: gdrive # Имя удалённого хранилища DVC 
+  remote_name: storage # Имя удалённого хранилища DVC (Если меняете, не забедьте удалить старое хранилище)
+  gdrive_folder_id: 1Le1Dyp051-zlFaSeRtRF67bAFkkPan_e # ID папки в Google Drive
+  repo_name: iris.csv # Имя сохраняемого файла (датасета)
+  repo_path: ./data/raw # Путь к папке, где находится датасет (Желательно не трогать)

@@ -3,12 +3,14 @@
 # https://dvc.org/doc/user-guide/dvcignore
 
 /.ipynb_checkpoints
+/.hydra
 
 /src/utils/dvc-download-from-gdrive.py
 /src/utils/dvc-add.py
 /src/utils/dvc-push-to-gdrive.py
 
 download-dataset.log
-dvc_add.log
+dvc-add.log
 dataset-to-dvc.log
 download-dvc.log
+preprocessing.log

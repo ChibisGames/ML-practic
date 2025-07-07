@@ -1,0 +1,30 @@
+# От этой строчки НЕЛЬЗЯ менять параметры
+defaults:
+  - _self_
+  - override hydra/hydra_logging: disabled
+  - override hydra/job_logging: disabled
+
+hydra:
+  verbose: false
+  job:
+    chdir: false
+  run:
+    dir: ${PATH_TO_SAVE_CSV.save_dir}
+  sweep:
+    dir: ${PATH_TO_SAVE_CSV.save_dir}
+  output_subdir: null
+
+# От этой строчки МОЖНО менять параметры
+
+# Параметры для сохранения датасета в CSV
+PATH_TO_SAVE_CSV:
+  input_dir: ./data/raw
+  output_dir: ./data/processed
+  filename: iris.csv
+  save_dir: ${PATH_TO_SAVE_CSV.output_dir}/${now:%Y-%m-%d}/${now:%H-%M-%S}
+  
+  class_names: class_names.csv
+  data_train: X_train.csv
+  data_test: X_test.csv
+  answer_train: y_train.csv
+  answer_test: y_test.csv

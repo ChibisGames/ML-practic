@@ -1,0 +1,48 @@
+# От этой строчки НЕЛЬЗЯ менять параметры
+defaults:
+  - _self_
+  - override hydra/hydra_logging: disabled
+  - override hydra/job_logging: disabled
+
+hydra:
+  verbose: false
+  job:
+    chdir: false
+  run:
+    dir: ${PATH_TO_SAVE_MODEL.output_dir}
+  sweep:
+    dir: ${PATH_TO_SAVE_MODEL.output_dir}
+  output_subdir: null
+
+# От этой строчки МОЖНО менять параметры
+launch: single # single, multirun (multirun не реализован)
+
+# Параметры для загрузки датасета в CSV
+PATH_TO_LOAD_CSV:
+  day: "2025-07-07" # если single, то можно указать конкретный день (см. папку data/processed)
+  time: "20-44-23" # если single, то можно указать конкретное время (см. папку data/processed)
+  root_dir: ./data/processed # Папка, где находятся все обработанные данные
+  input_dir: ${PATH_TO_LOAD_CSV.root_dir}/${PATH_TO_LOAD_CSV.day}/${PATH_TO_LOAD_CSV.time}
+  X_train: X_train.csv
+  y_train: y_train.csv
+  X_test: X_test.csv
+  y_test: y_test.csv
+  class_names: class_names.csv
+  load_dir: ./data/outputs/${now:%Y-%m-%d}/${now:%H-%M-%S}
+
+# Параметры для обучения модели (можно менять, создавать, удалять)
+model_params:
+  n_estimators: 5     # Количество деревьев в лесу
+  max_depth: 3    # Максимальная глубина дерева
+  min_samples_split: 2    # Минимальное количество образцов для разделения узла
+  random_state: 42    # Для воспроизводимости результатов
+
+# Параметры для сохранения модели и метрик
+PATH_TO_SAVE_MODEL:
+  output_dir: ./data/outputs/${now:%Y-%m-%d}/${now:%H-%M-%S}
+  model_expansion: .pkl # Расширение файла модели (настраивается пользователем в зависимости от файла обучения)
+  modelname: model # без расширением
+  metrics_expansion: .json # Расширение файла метрик (настраивается пользователем в зависимости от файла обучения)
+  metricsname: metrics # без расширением
+  date_cat: null
+  time_cat: null

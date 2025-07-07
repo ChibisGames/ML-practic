@@ -3,7 +3,7 @@
 from modules import hydra, os, urllib, DictConfig
 
 
-@hydra.main(config_name="config", config_path=".", version_base="1.1")
+@hydra.main(config_name="utils-config", config_path="../../configs", version_base="1.1")
 def download_dataset(cfg: DictConfig) -> None:
 
     # Настройки
