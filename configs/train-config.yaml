@@ -15,7 +15,7 @@ hydra:
   output_subdir: null
 
 # От этой строчки МОЖНО менять параметры
-launch: single # single, multirun (multirun не реализован)
+launch: multirun # single, multirun (multirun не реализован)
 
 # Параметры для загрузки датасета в CSV
 PATH_TO_LOAD_CSV:

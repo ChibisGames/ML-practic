@@ -5,9 +5,6 @@
 /.ipynb_checkpoints
 /.hydra
 
-/src/utils/dvc-download-from-gdrive.py
-/src/utils/dvc-add.py
-/src/utils/dvc-push-to-gdrive.py
 
 download-dataset.log
 dvc-add.log

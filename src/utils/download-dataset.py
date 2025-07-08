@@ -1,6 +1,7 @@
 # Данный файл используем, если можно скачать датасет из интернета, 
 # то есть он не подвязан к удалённому хранилищу.
-from modules import hydra, os, urllib, DictConfig
+import hydra, os, urllib.request
+from omegaconf import DictConfig
 
 
 @hydra.main(config_name="utils-config", config_path="../../configs", version_base="1.1")

@@ -15,6 +15,15 @@ hydra:
   output_subdir: null
 
 # От этой строчки МОЖНО менять параметры
+method_of_application: local # Способ применения конфигурации (с 01.01.2025 доступен только local)
+
+# Параметры для работы с DVC
+PATH_TO_DVC:
+  avoiding_duplication: true # Избегать дублирования файлов в DVC при скачивании
+  url: https://raw.githubusercontent.com/uiuc-cse/data-fa14/gh-pages/data/iris.csv # URL на скачивание датасета и соединением его с DVC
+  internal_files: # Список путей к внутренним файлам
+    - iris.csv
+  target_dir: ././data/raw # не трогать: каталог в репозитории для размещения симлинков
 
 # Параметры для скачивания датасета из интернета
 PATH_TO_DOWNLOAD_FROM_INTERNET:

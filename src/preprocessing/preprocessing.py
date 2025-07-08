@@ -3,8 +3,6 @@ from sklearn.model_selection import train_test_split
 import hydra
 from omegaconf import DictConfig
 
-#TODO: Сделать нормальную config.yaml
-
 @hydra.main(config_name="preprocessing-config", config_path="../../configs", version_base="1.1")
 def preprocess_data(cfg: DictConfig) -> None:
     datairis = pd.read_csv(
@@ -33,10 +31,10 @@ def preprocess_data(cfg: DictConfig) -> None:
 
     data_train, data_test, answer_train, answer_test = train_test_split(datairis, y_iris, test_size=0.3)
 
-    data_train.to_csv(f'{cfg.PATH_TO_SAVE_CSV.save_dir}/X_train.csv', index=False, sep=',')
-    data_test.to_csv(f'{cfg.PATH_TO_SAVE_CSV.save_dir}/X_test.csv', index=False, sep=',')
-    answer_train.to_csv(f'{cfg.PATH_TO_SAVE_CSV.save_dir}/y_train.csv', index=False, sep=',')
-    answer_test.to_csv(f'{cfg.PATH_TO_SAVE_CSV.save_dir}/y_test.csv', index=False, sep=',')
+    data_train.to_csv(f'{cfg.PATH_TO_SAVE_CSV.save_dir}/{cfg.PATH_TO_SAVE_CSV.data_train}', index=False, sep=',')
+    data_test.to_csv(f'{cfg.PATH_TO_SAVE_CSV.save_dir}/{cfg.PATH_TO_SAVE_CSV.data_test}', index=False, sep=',')
+    answer_train.to_csv(f'{cfg.PATH_TO_SAVE_CSV.save_dir}/{cfg.PATH_TO_SAVE_CSV.answer_train}', index=False, sep=',')
+    answer_test.to_csv(f'{cfg.PATH_TO_SAVE_CSV.save_dir}/{cfg.PATH_TO_SAVE_CSV.answer_test}', index=False, sep=',')
 
 if __name__ == "__main__":
     preprocess_data()

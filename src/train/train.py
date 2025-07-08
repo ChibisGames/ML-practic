@@ -64,13 +64,6 @@ def train_model(cfg: DictConfig) -> None:
                 cfg.PATH_TO_SAVE_MODEL.metrics_expansion}", 'w') as f:
             json.dump(metrics, f, indent=4)
     elif cfg.launch == "multirun":
-        # Путь к текущему файлу
-        current_file = __file__
-        # Папка, в которой лежит файл
-        current_dir = os.path.dirname(os.path.abspath(current_file))
-        print(f"Current directory: {current_dir}")
-
-
         # Сохранение модели и метрик для каждого запуска
         with open(
             f"{cfg.PATH_TO_SAVE_MODEL.output_dir}/{cfg.PATH_TO_SAVE_MODEL.modelname}_{\
