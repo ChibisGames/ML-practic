@@ -1,0 +1,13 @@
+md5: 70ca8d6b387ee7d63f592890612fdf69
+frozen: true
+deps:
+- checksum: '"3fd5274937a1c06965da68b256f08efed00721b141958e7fd90ea432730c9264"'
+  size: 3716
+  hash: md5
+  path: 
+    https://raw.githubusercontent.com/uiuc-cse/data-fa14/gh-pages/data/iris.csv
+outs:
+- hash: md5
+  path: iris.csv
+  md5: 57fce90c81521889c736445f058c4838
+  size: 3716
